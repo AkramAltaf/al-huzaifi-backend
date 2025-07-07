@@ -85,12 +85,10 @@ const registrationSchema = new mongoose.Schema(
     },
     scholarshipType: {
       type: String,
-      required: true,
       trim: true,
     },
     scholarshipReason: {
       type: String,
-      required: true,
       trim: true,
     },
   },
