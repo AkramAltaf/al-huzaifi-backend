@@ -20,3 +20,17 @@ export const getAllRegistrations = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+
+// Delete a registration by ID
+export const deleteRegistration = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deleted = await Registration.findByIdAndDelete(id);
+    if (!deleted) {
+      return res.status(404).json({ error: "Registration not found" });
+    }
+    res.status(200).json({ message: "Registration deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
